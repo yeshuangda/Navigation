@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{margin: 0;padding: 0;}
+        html{height: 100%;}
+        body{height: 100%}
+        body{background: url(img/body.png) no-repeat center top;}
+        .mask{
+            width: 100%;
+            height: 100%;
+            background: gray;
+            opacity: 0.5;
+            position: absolute;
+            display: none;
+        }
+        .novice{
+            width: 980px;
+            height: 800px;
+            position: relative;
+            left: 50%;
+            margin-left: -490px;
+            display: none;
+        }
+        .novice div{
+            position:relative;
+        }
+        .novice a{
+            width: 92px;
+            height: 30px;
+            position: absolute;
+            cursor: pointer;
+            text-indent: -99em;
+            overflow: hidden;
+        }
+        .novice span{
+            width: 40px;
+            height: 40px;
+            position: absolute;
+            cursor: pointer;
+            text-indent: -99em;
+            overflow: hidden;
+        }
+        .novice .diva{
+            width: 745px;
+            height: 329px;
+            background: url(img/guide11.png) no-repeat;
+            position: absolute;
+            top: 130px;
+            left: -7px;
+            display: none;
+        }
+        .novice .diva a{
+            top: 232px;
+            left: 490px;
+        }
+        .novice .diva span{
+            top: 140px;
+            left: 676px;
+        }
+        .novice .divb{
+            width: 647px;
+            height: 405px;
+            background: url(img/guide21.png) no-repeat;
+            position: absolute;
+            top: 7px;
+            left: 322px;
+            display: none;
+        }
+        .novice .divb a{
+            top: 307px;
+            left: 147px;
+        }
+        .novice .divb span{
+            top: 191px;
+            left: 327px;
+        }
+
+        .novice .divc{
+            width: 647px;
+            height: 405px;
+            background: url(img/guide31.png) no-repeat;
+            position: absolute;
+            top: 295px;
+            left: 322px;
+            display: none;
+        }
+        .novice .divc a{
+            top: 155px;
+            left: 403px;
+        }
+        .novice .divc span{
+            top: 41px;
+            left: 584px;
+        }
+
+        .novice .divd{
+            width: 647px;
+            height: 405px;
+            background: url(img/guide41.png) no-repeat;
+            position: absolute;
+            top: 77px;
+            left: 162px;
+            display: none;
+
+        }
+        .novice .divd a{
+            top: 246px;
+            left: 307px;
+        }
+        .novice .divd span{
+            top: 126px;
+            left: 489px;
+
+        }
+
+        .novice .dive{
+            width: 647px;
+            height: 405px;
+            background: url(img/guide51.png) no-repeat;
+            position: absolute;
+            top: 77px;
+            left: 258px;
+            display: none;
+
+        }
+        .novice .dive a{
+            top: 246px;
+            left: 152px;
+        }
+
+    </style>
+    <script>
+        window.onload=function(){
+            function $(id){
+                return document.getElementById(id);
+            }
+            $("mask").style.display="block";
+            $("novice").style.display="block";
+           var novices=$("novice").children;
+            novices[0].style.display="block";
+            for(var i=0;i<novices.length;i++){
+                novices[i].index=i;
+                novices[i].children[0].onclick=function(){
+                    if(this.parentNode.index+1==novices.length){
+                        $("mask").style.display="none";
+                        $("novice").style.display="none";
+                    }else{
+                        this.style.display="none";
+                        console.log(this.parentNode.index+1);
+                        novices[this.parentNode.index].style.display="none";
+                        novices[this.parentNode.index+1].style.display="block";
+                    }
+
+
+                }
+                if(i<novices.length-1){
+                    novices[i].children[1].onclick=function(){
+                        $("mask").style.display="none";
+                        $("novice").style.display="none";
+                    }
+                }
+
+            }
+        }
+    </script>
+</head>
+<body>
+ <div class="mask" id="mask"></div>
+<div class="novice" id="novice">
+    <div class="diva"><a>1</a><span title="关闭">关闭</span></div>
+    <div class="divb"><a>2</a><span title="关闭">关闭</span></div>
+    <div class="divc"><a>3</a><span title="关闭">关闭</span></div>
+    <div class="divd"><a>4</a><span title="关闭">关闭</span></div>
+    <div class="dive"><a>5</a></div>
+</div>
+</body>
